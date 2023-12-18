@@ -1,16 +1,12 @@
 import React, { useEffect } from "react";
 import restclient from "../utils/restclient";
-import {  fetchOrderMetaData } from "../actions/fetchOrderMetaData";
+import { fetchOrderMetaData } from "../actions/fetchOrderMetaData";
 import { useSelector, useDispatch } from "react-redux";
 import TaskComponent from "../Components/TaskComponent";
 
 export default function TaskContainer() {
   const dispatch = useDispatch();
   const store = useSelector((state) => state);
-  const [tableData,setTableData] = React.useState({
-    columns:[],
-    rows:[]
-  })
 
   const fetchOrderDetails = (endPoint) => {
     const orderParams = {
@@ -22,11 +18,11 @@ export default function TaskContainer() {
         return value;
       })
       .catch(function (err) {
-        console.log("----", err);// TODO::error handling
+        console.log("----", err); // TODO::error handling
       });
   };
 
-  const dataJoiner = (data)=>{
+  const dataJoiner = (data) => {
     let combinedData = [];
     let key = Object.keys(data[0]);
     for (let i of key) {
@@ -39,11 +35,11 @@ export default function TaskContainer() {
       obj["id"] = i;
       combinedData.push(obj);
     }
-    return combinedData
-  }
+    return combinedData;
+  };
 
   const refineData = (data) => {
-   let combinedData =  dataJoiner(data)
+    let combinedData = dataJoiner(data);
     let refinedData = {};
     let rowdata = [];
 
@@ -67,8 +63,7 @@ export default function TaskContainer() {
     ];
     refinedData["rows"] = rowdata;
     dispatch(fetchOrderMetaData(refinedData));
-    setTableData(refinedData)
-  }
+  };
 
   const fetchAllData = () => {
     Promise.all([
@@ -86,7 +81,7 @@ export default function TaskContainer() {
 
   return (
     <>
-     <TaskComponent table={tableData}/>
+      <TaskComponent />
     </>
   );
 }
