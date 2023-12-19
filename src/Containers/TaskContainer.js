@@ -47,8 +47,8 @@ export default function TaskContainer(props) {
     return combinedData;
   };
 
-  const refineData = (resp) => {
-    let combinedData = dataJoiner(resp);
+  const refineData = (data) => {
+    let combinedData = dataJoiner(data);
     let refinedData = {};
     let rowdata = combinedData.map((i) => {
       return {

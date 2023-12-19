@@ -34,13 +34,9 @@ export default function TaskComponent(props) {
   //   collectedData = store.orderMetaData.value.data;
   // }
 
-  // if (
-  //   store.hasOwnProperty("searchData") &&
-  //   store.searchData &&
-  //   store.searchData.value
-  // ) {
-  //    collectedData = store.searchData.value.data;
-  //   }
+export default function TaskComponent() {
+  let collectedData = { columns: [], rows: [] };
+  const store = useSelector((state) => state);
 
   function expandCollectedData(e) {
     if (
