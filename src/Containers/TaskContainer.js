@@ -78,6 +78,7 @@ export default function TaskContainer(props) {
     dispatch(showSkeleton(true));
     Promise.all([
       fetchOrderDetails("orders"),
+      fetchOrderDetails("orders-tat"),
       fetchOrderDetails("orders-amount"),
       fetchOrderDetails("orders-tat"),
     ]).then((data) => {
