@@ -8,8 +8,6 @@ function Navbar() {
   let obj = {};
   let columnArr = React.useRef({columns: [], rows: []});
 
-  // console.log(columnArr,"cc")
-
   if (
     store.hasOwnProperty("orderMetaData") &&
     store.orderMetaData &&
@@ -23,7 +21,7 @@ function Navbar() {
   function searchOperation(e) {
     let searchedValue = e.target.value;
     let rowArray = columnArr.current.rows.filter((item) => {
-      let text = item.task;
+      let text = item.name;
       let desc = item.desc
       let lowertext = text.toLowerCase();
       let lowerdesc = desc.toLowerCase();

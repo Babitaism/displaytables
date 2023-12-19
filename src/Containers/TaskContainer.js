@@ -23,55 +23,71 @@ export default function TaskContainer() {
   };
 
   const dataJoiner = (data) => {
-    let combinedData = [];
-    let key = Object.keys(data[0]);
-    for (let i of key) {
-      let obj = {};
-      obj["task"] = data[0][i].name;
-      obj["cost"] = data[2][i].amount;
-      obj["manpower"] = data[1][i].labour;
-      obj["taskDescription"] = data[0][i].desc;
-      obj["time"] = data[1][i].time;
-      obj["id"] = i;
-      combinedData.push(obj);
-    }
+    let orderKeys = Object.keys(data.orders[0]);
+    let ordersTatKeys = Object.keys(data.ordersTat[0]);
+    let ordersAmtKeys = Object.keys(data.ordersAmount[0]);
+
+    let ids = Object.keys(data.orders);
+    let totalKeys = [];
+    totalKeys.push(orderKeys, ordersAmtKeys, ordersTatKeys)
+    let finalKeys = totalKeys.flat();
+
+
+
+    let combinedData = ids.map((id) => {
+      return {
+        name: data.orders[id].name,
+        amount: data.ordersAmount[id].amount,
+        labour: data.ordersTat[id].labour,
+        desc: data.orders[id].desc,
+        time: data.ordersTat[id].time,
+        id,
+      };
+    });
+    console.log("------------>>", combinedData);
     return combinedData;
   };
 
-  const refineData = (data) => {
-    let combinedData = dataJoiner(data);
+  const refineData = (resp) => {
+    let combinedData = dataJoiner(resp);
     let refinedData = {};
-    let rowdata = [];
+    let rowdata = combinedData.map((i) => {
+      return {
+        id: i.id,
+        name: i.name,
+        desc: i.desc,
+        amount: i.amount,
+        labour: i.labour,
+        time: i.time,
+      };
+    });
 
-    for (let i in combinedData) {
-      let newObj = {};
-      newObj["id"] = combinedData[i].id;
-      newObj["task"] = combinedData[i].task;
-      newObj["desc"] = combinedData[i].taskDescription;
-      newObj["cost"] = combinedData[i].cost;
-      newObj["labour"] = combinedData[i].manpower;
-      newObj["time"] = combinedData[i].time;
-      rowdata.push(newObj);
-    }
-
-    refinedData["columns"] = [
-      { field: "task", headerName: "Task" },
-      { field: "desc", headerName: "Description" },
-      { field: "cost", headerName: "Amount" },
-      { field: "labour", headerName: "Manpower" },
-      { field: "time", headerName: "Time(in hrs)" },
-    ];
+    let values = Object.values(combinedData);
+    let firstRowData = values[0];
+    let firstRowkeys = Object.keys(firstRowData);
+    let columnData = firstRowkeys.map((i) => {
+      return {
+        field: i,
+        headerName: i[0].toUpperCase() + i.slice(1, i.length),
+      };
+    });
     refinedData["rows"] = rowdata;
+    refinedData["columns"] = columnData;
     dispatch(fetchOrderMetaData(refinedData));
   };
 
   const fetchAllData = () => {
     Promise.all([
       fetchOrderDetails("orders"),
-      fetchOrderDetails("orders-tat"),
       fetchOrderDetails("orders-amount"),
+      fetchOrderDetails("orders-tat")
     ]).then((data) => {
-      refineData(data);
+      let resp = {
+        orders: data[0],
+        ordersTat: data[2],
+        ordersAmount: data[1],
+      };
+      refineData(resp);
     });
   };
 
