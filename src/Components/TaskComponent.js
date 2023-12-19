@@ -1,6 +1,7 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { useSelector } from "react-redux";
+import SkeletonComponent from "./SkeletonComponent";
 
 export default function TaskComponent() {
   let collectedData = { columns: [], rows: [] };
@@ -23,12 +24,25 @@ export default function TaskComponent() {
   }
 
   return (
-    <div style={{ height: 400, width: "100%" }}>
-      <DataGrid
-        checkboxSelection
-        disableRowSelectionOnClick
-        {...collectedData}
-      />
-    </div>
+    <>
+      <div style={{ height: 400, width: "100%" }}>
+        <DataGrid
+          checkboxSelection
+          disableRowSelectionOnClick
+          {...collectedData}
+        />
+      </div>
+      {/* {collectedData.columns.length == 0 ? (
+        <SkeletonComponent />
+      ) : (
+        <div style={{ height: 400, width: "100%" }}>
+          <DataGrid
+            checkboxSelection
+            disableRowSelectionOnClick
+            {...collectedData}
+          />
+        </div>
+      )} */}
+    </>
   );
 }
