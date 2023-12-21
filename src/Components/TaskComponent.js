@@ -32,17 +32,6 @@ export default function TaskComponent() {
           {...collectedData}
         />
       </div>
-      {/* {collectedData.columns.length == 0 ? (
-        <SkeletonComponent />
-      ) : (
-        <div style={{ height: 400, width: "100%" }}>
-          <DataGrid
-            checkboxSelection
-            disableRowSelectionOnClick
-            {...collectedData}
-          />
-        </div>
-      )} */}
     </>
   );
 }
