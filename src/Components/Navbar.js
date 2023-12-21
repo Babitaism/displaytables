@@ -35,7 +35,6 @@ function Navbar() {
     })
     obj["columns"] = columnArr.current.columns;
     obj["rows"] = rowArray;
-    console.log(obj, "obj");
     dispatch(searchData(obj));
   }
 

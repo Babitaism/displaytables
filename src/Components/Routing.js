@@ -15,8 +15,8 @@ function RoutingComponent(props) {
       );
     }
     routeArr.push(
-      <Route key={"abcd"}  path="/" element={<TaskContainer/>} />,
-      <Route key={"abcd"} path="*" element={<NoPage />} />
+      <Route key={"abcd"} path="/" element={<TaskContainer/>} />,
+      <Route key={"abcd"} path="*" element={<NoPage/>} />
     );
     return routeArr;
   }
