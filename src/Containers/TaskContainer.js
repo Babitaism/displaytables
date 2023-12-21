@@ -3,10 +3,12 @@ import restclient from "../utils/restclient";
 import { fetchOrderMetaData } from "../actions/fetchOrderMetaData";
 import { useSelector, useDispatch } from "react-redux";
 import TaskComponent from "../Components/TaskComponent";
+import { showSkeleton } from "../actions/showSkeleton";
 
 export default function TaskContainer() {
   const dispatch = useDispatch();
   const store = useSelector((state) => state);
+  let flag = false;
 
   const fetchOrderDetails = (endPoint) => {
     const orderParams = {
@@ -23,17 +25,7 @@ export default function TaskContainer() {
   };
 
   const dataJoiner = (data) => {
-    let orderKeys = Object.keys(data.orders[0]);
-    let ordersTatKeys = Object.keys(data.ordersTat[0]);
-    let ordersAmtKeys = Object.keys(data.ordersAmount[0]);
-
     let ids = Object.keys(data.orders);
-    let totalKeys = [];
-    totalKeys.push(orderKeys, ordersAmtKeys, ordersTatKeys)
-    let finalKeys = totalKeys.flat();
-
-
-
     let combinedData = ids.map((id) => {
       return {
         name: data.orders[id].name,
@@ -44,7 +36,7 @@ export default function TaskContainer() {
         id,
       };
     });
-    console.log("------------>>", combinedData);
+    //  console.log("------------>>", combinedData);
     return combinedData;
   };
 
@@ -77,27 +69,33 @@ export default function TaskContainer() {
   };
 
   const fetchAllData = () => {
+    dispatch(showSkeleton(true));
     Promise.all([
       fetchOrderDetails("orders"),
       fetchOrderDetails("orders-amount"),
-      fetchOrderDetails("orders-tat")
+      fetchOrderDetails("orders-tat"),
     ]).then((data) => {
       let resp = {
         orders: data[0],
         ordersTat: data[2],
         ordersAmount: data[1],
       };
+      dispatch(showSkeleton(false));
       refineData(resp);
     });
   };
+
+  if (
+    store.hasOwnProperty("orderMetaData") &&
+    store.orderMetaData &&
+    store.orderMetaData.value
+  ) {
+    flag = true;
+  }
 
   useEffect(() => {
     fetchAllData();
   }, []);
 
-  return (
-    <>
-      <TaskComponent />
-    </>
-  );
+  return <>{flag && <TaskComponent />}</>;
 }
