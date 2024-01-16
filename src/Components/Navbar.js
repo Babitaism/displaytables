@@ -1,12 +1,15 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { searchData } from "../actions/searchData";
+import { SwitchComponent } from "./SwitchComponent";
+import TaskComponent from "./TaskComponent";
 
-function Navbar() {
+function Navbar(props) {
   const store = useSelector((state) => state);
   const dispatch = useDispatch();
   let obj = {};
-  let columnArr = React.useRef({columns: [], rows: []});
+  let columnArr = React.useRef({ columns: [], rows: [] });
+  // const[flag,setFlag] =React.useState(true)
 
   if (
     store.hasOwnProperty("orderMetaData") &&
@@ -22,47 +25,46 @@ function Navbar() {
     let searchedValue = e.target.value;
     let rowArray = columnArr.current.rows.filter((item) => {
       let text = item.name;
-      let desc = item.desc
+      let desc = item.desc;
       let lowertext = text.toLowerCase();
       let lowerdesc = desc.toLowerCase();
       let lowercase = searchedValue.toLowerCase();
-      let array = [lowertext,lowerdesc]
-      for(let i of array){
-      if (i.startsWith(lowercase)) {
-       return item
+      let array = [lowertext, lowerdesc];
+      for (let i of array) {
+        if (i.startsWith(lowercase)) {
+          return item;
+        }
       }
-    }
-    })
+    });
     obj["columns"] = columnArr.current.columns;
     obj["rows"] = rowArray;
+    props.data(obj);
+    if (searchedValue.length != 0) {
+      props.flag(true);
+    }
+    if (searchedValue.length == 0) {
+      props.flag(false);
+    }
     dispatch(searchData(obj));
   }
 
   return (
-    <>
+    <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <a className="navbar-brand" href="/">
           TrackDetails
         </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto"></ul>
+
+          <SwitchComponent />
+
           <form className="form-inline my-2 my-lg-0">
             <input
               className="form-control mr-sm-2"
               type="search"
               placeholder="Search"
-              onChange={searchOperation}
+              onKeyUp={searchOperation}
               aria-label="Search"
             ></input>
             <button
@@ -74,7 +76,7 @@ function Navbar() {
           </form>
         </div>
       </nav>
-    </>
+    </div>
   );
 }
 
