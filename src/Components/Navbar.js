@@ -38,7 +38,6 @@ function Navbar(props) {
     });
     obj["columns"] = columnArr.current.columns;
     obj["rows"] = rowArray;
-
     props.data(obj);
     if (searchedValue.length != 0) {
       props.flag(true);
@@ -46,8 +45,6 @@ function Navbar(props) {
     if (searchedValue.length == 0) {
       props.flag(false);
     }
-
-
     dispatch(searchData(obj));
   }
 
@@ -79,7 +76,7 @@ function Navbar(props) {
           </form>
         </div>
       </nav>
-    </div>
+    </>
   );
 }
 

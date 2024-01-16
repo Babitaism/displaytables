@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="805f8df8-3831-4af1-967a-27d8a5cab235" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jest.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/setupTests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/Demo.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Parent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Parent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Routing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/TaskContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/TaskContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actiontype/actiontype.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actiontype/actiontype.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test1.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
