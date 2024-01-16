@@ -38,7 +38,6 @@ function Navbar(props) {
     });
     obj["columns"] = columnArr.current.columns;
     obj["rows"] = rowArray;
-
     props.data(obj);
     if (searchedValue.length != 0) {
       props.flag(true);
@@ -46,8 +45,6 @@ function Navbar(props) {
     if (searchedValue.length == 0) {
       props.flag(false);
     }
-
-
     dispatch(searchData(obj));
   }
 
@@ -55,13 +52,11 @@ function Navbar(props) {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <a className="navbar-brand" href="/">
-          Track_details
+          TrackDetails
         </a>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto"></ul>
-
           <SwitchComponent />
-
           <form className="form-inline my-2 my-lg-0">
             <input
               className="form-control mr-sm-2"
@@ -79,7 +74,7 @@ function Navbar(props) {
           </form>
         </div>
       </nav>
-    </div>
+    </>
   );
 }
 

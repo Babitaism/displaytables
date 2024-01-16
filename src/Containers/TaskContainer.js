@@ -5,10 +5,12 @@ import { useSelector, useDispatch } from "react-redux";
 import TaskComponent from "../Components/TaskComponent";
 import { showSkeleton } from "../actions/showSkeleton";
 
-export default function TaskContainer() {
+
+export default function TaskContainer(props) {
   const dispatch = useDispatch();
   const store = useSelector((state) => state);
   let flag = false;
+  const[data,setData] = React.useState({ columns: [], rows: []})
 
 
   const[data,setData] = React.useState({ columns: [], rows: []})
@@ -104,5 +106,7 @@ export default function TaskContainer() {
     fetchAllData();
   }, []);
 
-  return <>{flag && <TaskComponent />}</>;
+  return <>
+  {flag && <TaskComponent value={data} value1={props.value}/>}
+  </>;
 }
