@@ -10,8 +10,6 @@ export default function restclient(params) {
   })
     .then((resp) => resp.json())
     .then((response) => {
-      // console.log(" ********* API Response ********* ", response);
-      // console.log(response.status,"status")
       if (response.status === 401) {
         console.log("hi");
       }
