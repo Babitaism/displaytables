@@ -4,7 +4,7 @@ import { flagValue } from "../actions/flagValue";
 
 
 export default function Modal(props) {
-  const store = useSelector((state) => state);
+  const store = useSelector((state) => state.flagValue);
   const dispatch = useDispatch();
   const [flag, setFlag] = useState(true);
   const [flagStyle, setFlagStyle] = React.useState(props.open);
