@@ -17,7 +17,7 @@ code {
   display : inline-block;
   width :91px;
   height :30px;
-  background-color:aliceblue;
+  background-color:rgb(219, 226, 232);
   border-radius: 30px;
   border: 2px solid gray;
 }
