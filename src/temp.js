@@ -40,3 +40,11 @@ function Details() {
 }
 
 export default Details;
+
+let obj = {
+  value: { columns: [], rows: [] },
+  value1: {
+    flagValue: false,
+    refinedData: { columns: [], rows: [] },
+  },
+};
