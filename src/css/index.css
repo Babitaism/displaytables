@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,16 +10,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 
 .toggle {
   position : relative ;
   display : inline-block;
   width :91px;
-  /* // 100px */
   height :30px;
-   /* 40px; */
-  background-color:aliceblue;
+  background-color:rgb(219, 226, 232);
   border-radius: 30px;
   border: 2px solid gray;
 }
@@ -44,7 +42,7 @@ code {
 
 /* Checkbox checked toggle label bg color */
 .checkbox:checked + .toggle {
-  background-color: rgb(166, 245, 46);
+  background-color: rgb(199, 19, 19);
 }
 
 /* Checkbox vanished */

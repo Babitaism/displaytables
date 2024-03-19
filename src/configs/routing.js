@@ -1,4 +1,4 @@
-import NoPage from '../Components/NoPage';
+import NoPage from '../Components/InterviewTest';
 
 const routing = [
     {
