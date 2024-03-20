@@ -9,7 +9,7 @@ function Navbar(props) {
   const dispatch = useDispatch();
   let obj = {};
   let columnArr = React.useRef({ columns: [], rows: [] });
-  // const[flag,setFlag] =React.useState(true)
+  // const[flag,setFlag] = React.useState(true)
 
   if (
     store.hasOwnProperty("orderMetaData") &&
@@ -52,7 +52,7 @@ function Navbar(props) {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <a className="navbar-brand" href="/">
-          Track_details
+          Track_Details
         </a>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto"></ul>
