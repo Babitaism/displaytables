@@ -42,7 +42,7 @@ code {
 
 /* Checkbox checked toggle label bg color */
 .checkbox:checked + .toggle {
-  background-color: rgb(166, 245, 46);
+  background-color: red
 }
 
 /* Checkbox vanished */
