@@ -38,7 +38,7 @@ function Navbar(props) {
     });
     obj["columns"] = columnArr.current.columns;
     obj["rows"] = rowArray;
-<<<<<<< HEAD
+
     props.data(obj);
     if (searchedValue.length != 0) {
       props.flag(true);
@@ -46,13 +46,13 @@ function Navbar(props) {
     if (searchedValue.length == 0) {
       props.flag(false);
     }
-=======
->>>>>>> 4abfc33 (skeleton updated)
+
+
     dispatch(searchData(obj));
   }
 
   return (
-    <div>
+    <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <a className="navbar-brand" href="/">
           Track_details
