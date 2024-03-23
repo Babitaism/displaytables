@@ -7,6 +7,6 @@ import flagValue from "../reducers/flagValue";
 
 const store = configureStore({
     reducer: {orderMetaData,searchData,showSkeleton,toggleFlag,flagValue}
-  });
+)
 
   export default store;

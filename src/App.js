@@ -10,6 +10,7 @@ function App() {
     <>
     <Provider store={store}>
     <Parent/>
+    </Provider>
     {/* <InterviewTest/> */}
     </Provider>
     </>

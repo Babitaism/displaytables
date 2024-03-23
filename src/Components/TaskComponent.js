@@ -105,6 +105,7 @@ export default function TaskComponent(props) {
           onCellClick={expandCollectedData}
         />
       </div>
+
       {
         <Modal
           open={flag}
@@ -114,6 +115,8 @@ export default function TaskComponent(props) {
           flagForRenderingCell={flagForRenderCell}
         />
       }
+
+
     </>
   );
 }
