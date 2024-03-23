@@ -56,9 +56,7 @@ function Navbar(props) {
         </a>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto"></ul>
-
           <SwitchComponent />
-
           <form className="form-inline my-2 my-lg-0">
             <input
               className="form-control mr-sm-2"
