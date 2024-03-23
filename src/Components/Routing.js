@@ -17,10 +17,15 @@ function RoutingComponent(props) {
       );
     }
     routeArr.push(
+<<<<<<< HEAD
       <Route key={"abcd"} path="/" element={<TaskContainer value={props}/>} />,
       <Route key={"abcd"} path="*" element={<InterviewTest />} />,
       <Route key={"abcd"} path="/newview" element={<NewViewComponent />} />,
        <Route key={"abcd"} path="/task" element={<TaskComponent/>} />,
+=======
+      <Route key={"abcd"} path="/" element={<TaskContainer/>} />,
+      <Route key={"abcd"} path="*" element={<NoPage/>} />
+>>>>>>> 4abfc33 (skeleton updated)
     );
     return routeArr;
   }

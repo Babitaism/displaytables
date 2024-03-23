@@ -10,7 +10,10 @@ export default function TaskContainer(props) {
   const dispatch = useDispatch();
   const store = useSelector((state) => state);
   let flag = false;
+<<<<<<< HEAD
   const[data,setData] = React.useState({ columns: [], rows: []})
+=======
+>>>>>>> 4abfc33 (skeleton updated)
 
   const fetchOrderDetails = (endPoint) => {
     const orderParams = {
@@ -100,7 +103,11 @@ export default function TaskContainer(props) {
     fetchAllData();
   }, []);
 
+<<<<<<< HEAD
   return <>
   {flag && <TaskComponent value={data} value1={props.value}/>}
   </>;
+=======
+  return <>{flag && <TaskComponent />}</>;
+>>>>>>> 4abfc33 (skeleton updated)
 }
