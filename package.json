@@ -24,7 +24,19 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     "start": "set PORT=3001 && react-scripts start",
+=======
+    "start": "set PORT=4000 && react-scripts start",
+>>>>>>> d70266a (package json updated)
+=======
+    "start": "set PORT=4000 && react-scripts start",
+>>>>>>> dce48c0 (package json updated)
+=======
+    "start": "set PORT=3001 && react-scripts start",
+>>>>>>> 2788106 (port updated)
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject",
