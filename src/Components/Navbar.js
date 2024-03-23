@@ -9,7 +9,7 @@ function Navbar(props) {
   const dispatch = useDispatch();
   let obj = {};
   let columnArr = React.useRef({ columns: [], rows: [] });
-  // const[flag,setFlag] =React.useState(true)
+  // const[flag,setFlag] = React.useState(true)
 
   if (
     store.hasOwnProperty("orderMetaData") &&
@@ -49,16 +49,14 @@ function Navbar(props) {
   }
 
   return (
-    <div>
+    <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <a className="navbar-brand" href="/">
-          TrackDetails
+          Track_details
         </a>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto"></ul>
-
           <SwitchComponent />
-
           <form className="form-inline my-2 my-lg-0">
             <input
               className="form-control mr-sm-2"
@@ -76,7 +74,7 @@ function Navbar(props) {
           </form>
         </div>
       </nav>
-    </div>
+    </>
   );
 }
 

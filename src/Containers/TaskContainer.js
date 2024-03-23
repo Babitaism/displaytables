@@ -12,6 +12,11 @@ export default function TaskContainer(props) {
   let flag = false;
   const[data,setData] = React.useState({ columns: [], rows: []})
 
+
+  const[data,setData] = React.useState({ columns: [], rows: []})
+
+
+
   const fetchOrderDetails = (endPoint) => {
     const orderParams = {
       endPoint: endPoint,
@@ -75,6 +80,7 @@ export default function TaskContainer(props) {
     dispatch(showSkeleton(true));
     Promise.all([
       fetchOrderDetails("orders"),
+      fetchOrderDetails("orders-tat"),
       fetchOrderDetails("orders-amount"),
       fetchOrderDetails("orders-tat"),
     ]).then((data) => {
